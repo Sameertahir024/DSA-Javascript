@@ -54,15 +54,34 @@ let strs = ["act", "pots", "tops", "cat", "stop", "hat"];
 // Output: [["hat"],["act", "cat"],["stop", "pots", "tops"]]
 //
 
-function makeGroupAnagram(strs) {
-   let group = {};
-   for (let s of strs) {
-      const sort = s.split("").sort().join("");
-      if (!group[sort]) {
-         group[sort] = [];
-      }
-      group[sort].push(sort);
+// function makeGroupAnagram(strs) {
+//    let group = {};
+//    for (let s of strs) {
+//       const sort = s.split("").sort().join("");
+//       if (!group[sort]) {
+//          group[sort] = [];
+//       }
+//       group[sort].push(sort);
+//    }
+//    return Object.values(group);
+// }
+// console.log(makeGroupAnagram(strs));
+//
+//
+let nums = [1, 2, 2, 2, 2, 2, 3, 3, 3, 3];
+let k = 2;
+
+// Output: [2, 3];
+
+function checkFrequent(nums, k) {
+   let frequesnt = {};
+   for (let n of nums) {
+      frequesnt[n] = (frequesnt[n] || 0) + 1;
    }
-   return Object.values(group);
+   let ents = Object.entries(frequesnt);
+
+   // let n = ents.sort((a, b) => b[1] - a[1]);
+   let n = ents.sort();
+   console.log(n);
 }
-console.log(makeGroupAnagram(strs));
+console.log(checkFrequent(nums, k));
